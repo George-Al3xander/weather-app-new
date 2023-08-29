@@ -7,7 +7,7 @@ const Header = ({getWeather}: {getWeather: Function}) => {
         <form onSubmit={(e) => {
             e.preventDefault();
             getWeather(inputRef.current!.value)
-            e.target.reset();
+            inputRef.current!.value = ""
         }}>
             <input required ref={inputRef} placeholder="e.g. London" type="text" />
             <button>Search</button>

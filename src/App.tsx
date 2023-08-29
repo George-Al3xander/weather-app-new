@@ -12,8 +12,7 @@ type cityType = {
   status?: number,
   msg?: string
 }
-function App() {
-  const [count, setCount] = useState(0)
+function App() {  
   const apiKey = import.meta.env.VITE_API_KEY
   const [errorStatus, setErrorStatus] = useState(false);
   const [weather, setWeather] = useState({})
@@ -36,7 +35,8 @@ function App() {
 
   }
 
-  const getWeather = async (searchKey: string) : Promise<void> => {   
+  const getWeather = async (searchKey: string) : Promise<void> => {  
+    setIsLoading(true) 
     const city = await getCity(searchKey);
     if(city.status == 404) {
       setErrorStatus(true)
@@ -48,6 +48,7 @@ function App() {
       setForecast(forecast.data)
       setWeather(weather.data)     
     }
+    setIsLoading(false) 
   }
   
   return (
