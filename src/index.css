@@ -1,0 +1,252 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap');
+
+/*** The new CSS Reset - version 1.2.0 (last updated 23.7.2021) ***/
+
+/* Remove all the styles of the "User-Agent-Stylesheet", except for the 'display' property */
+*:where(:not(iframe, canvas, img, svg, video):not(svg *)) {
+  all: unset;
+  display: revert;
+}
+
+/* Preferred box-sizing value */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/*
+  Remove list styles (bullets/numbers)
+  in case you use it with normalize.css
+*/
+ol, ul {
+  list-style: none;
+}
+
+/* For images to not be able to exceed their container */
+img {
+  display: block;
+  max-width: 100%;
+}
+
+/* Removes spacing between cells in tables */
+table {
+  border-collapse: collapse;
+}
+
+/* Revert the 'white-space' property for textarea elements on Safari */
+textarea {
+  white-space: revert;
+}
+
+:root {
+  --ff-default: 'Roboto Mono', monospace;
+  
+  /* 'Raleway', sans-serif; */
+  
+  --fs-default: 1rem;
+  --fs-small: calc(var(--fs-default) * .85);
+  --fs-medium: calc(var(--fs-default) * 1.25);
+  --fs-big: calc(var(--fs-default) * 1.5);
+  --fs-large: calc(var(--fs-default) * 3);
+  --fs-xl: calc(var(--fs-default) * 5);
+
+  --gapFake: 10%;
+
+  --clr-primary: rgb(43,50,178);
+  --clr-secondary: rgb(20,136,204);
+}
+
+body {
+  font-family: var(--ff-default);
+  background: linear-gradient(to bottom, var(--clr-primary) 0%, var(--clr-secondary) 100%);  
+  background-repeat: no-repeat;  
+  background-attachment: fixed; 
+  color: white;
+  padding-bottom: 3rem;
+}
+
+.container {
+  width: min(90%, 40rem);
+  margin-inline: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 5rem;
+}
+
+header {
+  padding: 1rem;
+}
+
+input {
+  background-color: white;
+  padding: .2rem;
+  border-radius: .1rem;
+  margin-right: 1rem;
+  color: black;
+}
+
+header button:hover {
+  color: black;
+  cursor: pointer;
+}
+
+h1 {
+  font-size: var(--fs-large);
+  font-weight: 700;
+}
+
+.basic-info h3 {  
+  font-size: var(--fs-medium);
+  opacity: .7;
+}
+
+.current-info, .current-info-main{
+  display: flex;
+}
+
+.current-info {
+  justify-content: center;
+}
+
+.current-info-additional {
+  padding-left: var(--gapFake);
+}
+
+.current-info h1{
+  font-weight: 200;
+  font-size: var(--fs-xl);
+}
+.current-info-additional p {
+  margin-bottom: .5rem;
+}
+
+.current-info-additional ul {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  font-size: var(--fs-big);
+  font-weight: 400;
+  gap: 2rem;  
+}
+
+.current-info-main {
+  border-right: 1px solid white;
+  padding-right: var(--gapFake);
+
+}
+
+.current-info-main img {
+  min-width: 7rem;
+}
+
+.current-info-additional h3 {
+  opacity: .7;
+  text-transform: capitalize;
+  font-size: var(--fs-default);
+}
+
+.today-info {
+  display: flex;
+  gap: 1rem;
+}
+
+.today-info li, .week-info li {
+  text-align: center;
+  background-color: rgba(43,50,178, 40%);
+  padding: .5rem;
+  border-radius: .5rem;
+  font-size: var(--fs-medium);
+}
+
+.week-info-desktop li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: .5rem 1rem;
+  margin-bottom: 1rem;
+
+}
+
+.week-info-mobile li {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  padding: .5rem .1rem;
+}
+
+.week-info-mobile {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.week-info h2 {
+  font-size: var(--fs-big);
+  margin-bottom: 1rem;
+}
+
+.week-info li h3 {
+  opacity: .7;
+  font-size: var(--fs-default);
+}
+
+.week-info-mobile li h3 {
+  opacity: 1;
+}
+.week-info-mobile {
+  display: none;
+}
+
+.err-message {
+  text-align: center;
+}
+
+.spinner {
+  width: 64px;
+  height: 64px;
+  border: 8px solid;
+  border-color: white transparent white transparent;
+  border-radius: 50%;
+  animation: spin-anim 1.2s linear infinite;
+  margin-inline: auto;
+}
+
+@keyframes spin-anim {
+  0% {
+      transform: rotate(0deg);
+  }
+  100% {
+      transform: rotate(360deg);
+  }
+}
+
+@media (max-width: 40rem) {
+  .current-info {
+    flex-direction: column;
+  }
+  .current-info-main {
+    border-right: none;    
+    justify-content: center;
+  }
+
+  .current-info-additional, .current-info-main {
+    border-bottom: 1px solid white;
+    padding-bottom: 3rem;    
+  }
+  .current-info-additional {
+    padding-top: 3rem;
+  }
+  .week-info-desktop {
+    display: none;
+  }
+
+  .week-info-mobile {
+    display: flex;
+  }
+}
+
+
+
+
