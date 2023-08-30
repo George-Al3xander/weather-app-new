@@ -76,7 +76,7 @@ const TodayWeather = ({weather, forecast, city}: {weather:any, forecast:any, cit
             }
 
             <div className="week-info">
-             <h2>Next 5 days</h2>   
+             <h2>Next 6 days</h2>   
             <WeekWeatherDesktop weather={weather} week={week}/>
             <WeekWeatherMobile weather={weather} week={week}/>
             </div>

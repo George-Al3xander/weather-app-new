@@ -68,7 +68,7 @@ body {
 }
 
 .container {
-  width: min(90%, 40rem);
+  width: min(90%, 45rem);
   margin-inline: auto;
   display: flex;
   flex-direction: column;
@@ -147,8 +147,11 @@ h1 {
 }
 
 .today-info {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
   gap: 1rem;
+ 
+  
 }
 
 .today-info li, .week-info li {
@@ -157,6 +160,10 @@ h1 {
   padding: .5rem;
   border-radius: .5rem;
   font-size: var(--fs-medium);
+}
+
+.today-info li img,  .week-info li img {
+  margin-inline: auto;
 }
 
 .week-info-desktop li {
@@ -175,12 +182,8 @@ h1 {
   padding: .5rem .1rem;
 }
 
-.week-info-mobile {
-  display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap;
-  gap: 1rem;
-}
+
+
 
 .week-info h2 {
   font-size: var(--fs-big);
@@ -197,6 +200,9 @@ h1 {
 }
 .week-info-mobile {
   display: none;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1rem;
+
 }
 
 .err-message {
@@ -230,6 +236,9 @@ h1 {
     border-right: none;    
     justify-content: center;
   }
+  .today-info {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
 
   .current-info-additional, .current-info-main {
     border-bottom: 1px solid white;
@@ -243,7 +252,7 @@ h1 {
   }
 
   .week-info-mobile {
-    display: flex;
+    display: grid;
   }
 }
 
